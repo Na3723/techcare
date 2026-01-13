@@ -108,41 +108,33 @@ body {
 
 .chart-row {
   display: grid;
-  grid-template-columns: 3fr 1.3fr;
-  gap: 32px;
-  align-items: stretch;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
 }
-
 
 .chart-box {
   background: var(--lavender-bg);
   border-radius: 20px;
-  padding: 20px;
-  height: 320px;
-  width: 100%;
+  padding: 16px;
+  height: 300px;
 }
-
 
 .bp-summary {
   display: flex;
+  flex-direction: column;
   gap: 32px;
 }
-.bp {
-  flex: 1;
-}
 
+.bp {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
 .bp strong {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted-text);
-}
-.bp h2 {
-  margin: 0;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
 }
-
 
 .bp small {
   color: var(--muted-text);
@@ -180,22 +172,6 @@ body {
   padding: 18px;
   border-radius: 50%;
 }
-
-.vital.respiratory i {
-  background: var(--light-blue-bg);
-  color: var(--primary-blue);
-}
-
-.vital.temperature i {
-  background: var(--light-pink-bg);
-  color: var(--pink);
-}
-
-.vital.heart i {
-  background: #F2EEFF;
-  color: var(--purple);
-}
-
 
 .vital h3 {
   margin: 0;
@@ -273,5 +249,3 @@ td {
   gap: 10px;
   color: var(--muted-text);
 }
-
-
