@@ -1,52 +1,37 @@
+let chart;
+
 function renderChart() {
   const ctx = document.getElementById("bpChart").getContext("2d");
 
-  const labels = historyData.map(h => `${h.month} ${h.year}`);
-  const systolic = historyData.map(h => h.blood_pressure.systolic.value);
-  const diastolic = historyData.map(h => h.blood_pressure.diastolic.value);
+  if (chart) chart.destroy();
 
-  new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: "line",
     data: {
-      labels,
+      labels: window.historyData.map(h => h.month),
       datasets: [
         {
           label: "Systolic",
-          data: systolic,
-          borderColor: "#ff6b8a",
-          backgroundColor: "rgba(255,107,154,0.25)",
+          data: window.historyData.map(h => h.blood_pressure.systolic.value),
+          borderColor: "#FF6B8A",
           tension: 0.4,
-          pointRadius: 4,
-          fill: true,
+          fill: true
         },
         {
           label: "Diastolic",
-          data: diastolic,
+          data: window.historyData.map(h => h.blood_pressure.diastolic.value),
           borderColor: "#7B6CF6",
-          backgroundColor: "rgba(108,92,231,0.25)",
           tension: 0.4,
-          pointRadius: 4,
-          fill: true,
-        },
-      ],
+          fill: true
+        }
+      ]
     },
     options: {
-      responsive: true,   // 🔒 THIS FIXES THE DISAPPEARING
-      maintainAspectRatio: false,
+      responsive: true,
       plugins: {
-        legend: {
-          position: "right",
-          labels: {
-            usePointStyle: true,
-            padding: 20,
-          },
-        },
-      },
-      scales: {
-        y: {
-          grid: { color: "#eee" },
-        },
-      },
-    },
+        legend: { position: "right" }
+      }
+    }
   });
 }
+
