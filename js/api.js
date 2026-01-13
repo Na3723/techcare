@@ -1,14 +1,18 @@
-const username = "coalition";
-const password = "skills-test";
-
-const auth = btoa(username + ":" + password);
+const getAuthHeader = () => {
+  const credentials = `${"coalition"}:${"skills-test"}`;
+  return "Basic " + btoa(credentials);
+};
 
 async function fetchPatients() {
-  const response = await fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
-    headers: {
-      "Authorization": "Basic " + auth
+  const response = await fetch(
+    "https://fedskillstest.coalitiontechnologies.workers.dev",
+    {
+      headers: {
+        Authorization: getAuthHeader(),
+      },
     }
-  });
+  );
 
-  return await response.json();
+  if (!response.ok) throw new Error("API Error");
+  return response.json();
 }

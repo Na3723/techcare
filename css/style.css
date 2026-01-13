@@ -179,3 +179,38 @@ td {
   font-size: 24px;
 }
 
+.chart-box {
+  background: var(--lavender-bg);
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.bp-summary {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.vital {
+  background: linear-gradient(180deg, #fff, #fafafa);
+}
+
+table th {
+  text-align: left;
+  color: var(--text);
+  font-weight: 700;
+  padding-bottom: 14px;
+}
+
+.status {
+  font-weight: 600;
+  color: #5f6caf;
+}
+
+.patient img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+
