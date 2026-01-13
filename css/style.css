@@ -18,7 +18,8 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   background: var(--page-bg);
@@ -38,14 +39,13 @@ body {
   background: var(--card-bg);
   border-radius: 20px;
   padding: 24px;
-  height: 100%;
   overflow-y: auto;
 }
 
 .logo {
   font-size: 28px;
   font-weight: 800;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .patient {
@@ -54,6 +54,14 @@ body {
   background: #E6FBF5;
   padding: 14px;
   border-radius: 16px;
+  align-items: center;
+}
+
+.patient img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* CENTER */
@@ -61,16 +69,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  height: 100%;
   overflow-y: auto;
-  padding-right: 8px;
 }
 
 .card {
   background: var(--card-bg);
   border-radius: 24px;
   padding: 28px;
-  margin-bottom: 24px;
 }
 
 /* DIAGNOSIS */
@@ -84,20 +89,31 @@ body {
   background: var(--lavender-bg);
   border-radius: 20px;
   padding: 16px;
+  height: 260px;
 }
 
 .bp-summary {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .bp strong {
   font-size: 32px;
-  font-weight: 700;
 }
 
-/* VITALS — THIS IS THE KEY FIX */
+/* DOTS */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+.pink { background: var(--pink); }
+.purple { background: var(--purple); }
+
+/* VITALS */
 .vitals {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -107,23 +123,16 @@ body {
 .vital {
   background: var(--card-bg);
   border-radius: 20px;
-  padding: 20px 24px;
+  padding: 20px;
   display: flex;
-  align-items: center;
   gap: 16px;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+  align-items: center;
 }
-
 
 .vital i {
-  font-size: 32px;
+  font-size: 28px;
   padding: 18px;
   border-radius: 50%;
-}
-
-.vital h3 {
-  margin: 4px 0 0;
-  font-size: 22px;
 }
 
 .respiratory i {
@@ -148,66 +157,44 @@ table {
 }
 
 th, td {
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
 
 th {
-  text-align: left;
-  font-weight: 600;
+  font-size: 13px;
   color: var(--muted);
-  font-size: 14px;
 }
-
-td {
-  font-size: 14px;
-}
-td:last-child {
-  font-weight: 600;
-}
-
 
 /* PROFILE */
-.profile img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  display: block;
-}
-.profile p {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 14px;
-}
-
 .profile {
   background: var(--card-bg);
   border-radius: 24px;
   padding: 28px;
-  height: 100%;
   overflow-y: auto;
 }
-html, body {
-  height: 100%;
-  overflow: hidden;
+
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 16px;
+  object-fit: cover;
 }
-.card:last-child {
-  margin-bottom: 0;
+
+.profile p {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
 }
-.center section:last-child {
-  min-height: 420px;
-}
-.chart-box {
-  height: 260px;
-}
+
 h2 {
   font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
+
 small {
   color: var(--muted);
-  font-size: 13px;
 }
