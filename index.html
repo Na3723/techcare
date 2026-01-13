@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tech.Care - Patient Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <div class="sidebar">
+      <h1>Tech.Care</h1>
+      <p>Patients</p>
+      <div class="patient active">
+        <img id="patient-photo" />
+        <span id="patient-name">Jessica Taylor</span>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="card profile">
+        <img id="profile-picture" />
+        <h2 id="full-name"></h2>
+        <p id="dob"></p>
+        <p id="gender"></p>
+        <p id="phone"></p>
+        <p id="insurance"></p>
+      </div>
+
+      <div class="card">
+        <canvas id="bpChart"></canvas>
+      </div>
+
+      <div class="vitals">
+        <div class="vital" id="heart"></div>
+        <div class="vital" id="resp"></div>
+        <div class="vital" id="temp"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/chart.js"></script>
+
+</body>
+</html>
