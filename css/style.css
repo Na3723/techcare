@@ -1,46 +1,43 @@
 :root {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --border: #e5e7eb;
+  --page-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --border: #E5E7EB;
 
-  --text: #1f2937;
-  --muted: #6b7280;
+  --text: #1F2937;
+  --muted: #6B7280;
 
-  --pink: #ff6b8a;
-  --purple: #7b6cf6;
+  --pink: #FF6B8A;
+  --purple: #7B6CF6;
 
-  --lavender: #f3f1fd;
-  --blue-soft: #eaf4ff;
-  --pink-soft: #fff0f4;
+  --lavender-bg: #F3F1FD;
+  --light-blue-bg: #EAF4FF;
+  --light-pink-bg: #FFF0F4;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+body {
   margin: 0;
-  overflow: hidden;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background: var(--bg);
+  font-family: "Segoe UI", sans-serif;
+  background: var(--page-bg);
   color: var(--text);
 }
 
 #app {
-  height: 100%;
   display: grid;
   grid-template-columns: 260px 1fr 320px;
   gap: 24px;
   padding: 24px;
+  height: 100vh;
 }
 
 /* SIDEBAR */
 .sidebar {
-  background: var(--card);
-  border-radius: 24px;
+  background: var(--card-bg);
+  border-radius: 20px;
   padding: 24px;
-  overflow-y: auto;
 }
 
 .logo {
@@ -49,42 +46,27 @@ html, body {
   margin-bottom: 32px;
 }
 
-.sidebar-title {
-  margin-bottom: 16px;
-}
-
 .patient {
   display: flex;
   gap: 12px;
+  background: #E6FBF5;
   padding: 14px;
   border-radius: 16px;
-  background: #e6fbf5;
-}
-
-.patient img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
 }
 
 /* CENTER */
 .center {
   overflow-y: auto;
-  padding-right: 8px;
 }
 
 .card {
-  background: var(--card);
+  background: var(--card-bg);
   border-radius: 24px;
   padding: 28px;
   margin-bottom: 24px;
 }
 
-.card:last-child {
-  margin-bottom: 0;
-}
-
-/* CHART */
+/* DIAGNOSIS */
 .chart-row {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -92,9 +74,9 @@ html, body {
 }
 
 .chart-box {
-  background: var(--lavender);
+  background: var(--lavender-bg);
   border-radius: 20px;
-  padding: 20px;
+  padding: 16px;
 }
 
 .bp-summary {
@@ -107,17 +89,7 @@ html, body {
   font-size: 32px;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot.pink { background: var(--pink); }
-.dot.purple { background: var(--purple); }
-
-/* VITALS */
+/* VITALS — THIS IS THE KEY FIX */
 .vitals {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -126,32 +98,32 @@ html, body {
 }
 
 .vital {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 24px;
   display: flex;
-  gap: 16px;
   align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--card-bg);
 }
 
 .vital i {
-  font-size: 28px;
+  font-size: 32px;
   padding: 18px;
   border-radius: 50%;
 }
 
 .respiratory i {
-  background: var(--blue-soft);
-  color: #0e8af0;
+  background: var(--light-blue-bg);
+  color: #0E8AF0;
 }
 
 .temperature i {
-  background: var(--pink-soft);
+  background: var(--light-pink-bg);
   color: var(--pink);
 }
 
 .heart i {
-  background: #f2eeff;
+  background: #F2EEFF;
   color: var(--purple);
 }
 
@@ -166,37 +138,11 @@ th, td {
   border-bottom: 1px solid var(--border);
 }
 
-th {
-  text-align: left;
-  color: var(--muted);
-  font-weight: 600;
-}
-
 /* PROFILE */
 .profile {
-  background: var(--card);
+  background: var(--card-bg);
   border-radius: 24px;
   padding: 28px;
-  overflow-y: auto;
 }
 
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 16px;
-}
-
-.profile p {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  color: var(--muted);
-}
-
-.muted {
-  color: var(--muted);
-  font-size: 14px;
-}
 

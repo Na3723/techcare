@@ -1,51 +1,37 @@
-let bpChart;
+let chart;
 
-function renderChart(history) {
+function renderChart() {
   const ctx = document.getElementById("bpChart").getContext("2d");
 
-  if (bpChart) bpChart.destroy();
+  if (chart) chart.destroy();
 
-  bpChart = new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: "line",
     data: {
-      labels: history.map(h => `${h.month} ${h.year}`),
+      labels: window.historyData.map(h => h.month),
       datasets: [
         {
           label: "Systolic",
-          data: history.map(h => h.blood_pressure.systolic.value),
-          borderColor: "#ff6b8a",
-          backgroundColor: "rgba(255,107,138,0.2)",
+          data: window.historyData.map(h => h.blood_pressure.systolic.value),
+          borderColor: "#FF6B8A",
           tension: 0.4,
-          fill: true,
-          pointRadius: 4
+          fill: true
         },
         {
           label: "Diastolic",
-          data: history.map(h => h.blood_pressure.diastolic.value),
-          borderColor: "#7b6cf6",
-          backgroundColor: "rgba(123,108,246,0.2)",
+          data: window.historyData.map(h => h.blood_pressure.diastolic.value),
+          borderColor: "#7B6CF6",
           tension: 0.4,
-          fill: true,
-          pointRadius: 4
+          fill: true
         }
       ]
     },
     options: {
       responsive: true,
       plugins: {
-        legend: {
-          position: "right",
-          labels: { usePointStyle: true }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: false,
-          grid: { color: "#e5e7eb" }
-        },
-        x: {
-          grid: { display: false }
-        }
+        legend: { position: "right" }
       }
     }
   });
+}
+
