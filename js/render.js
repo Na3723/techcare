@@ -62,4 +62,3 @@ document.getElementById("heart-val").textContent =
   renderChart();
 });
 
-
