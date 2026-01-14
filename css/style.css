@@ -6,16 +6,14 @@
   --text: #1F2937;
   --muted-text: #6B7280;
 
-  --primary-blue: #0E8AF0;
+  --pink: #FF6B8A;
+  --purple: #7B6CF6;
 
   --lavender-bg: #F3F1FD;
-
-  --pink: #FF6B8A;
+  --light-blue-bg: #EAF4FF;
   --light-pink-bg: #FFF0F4;
 
-  --purple: #7B6CF6;
-  --light-blue-bg: #EAF4FF;
-
+  --teal: #20C997;
   --green: #20C997;
   --orange: #F4A261;
 }
@@ -59,18 +57,11 @@ html, body {
   border-radius: 16px;
   display: flex;
   gap: 12px;
-  align-items: center;
-}
-
-.patient img {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
 }
 
 /* CENTER */
 .center {
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 /* CARD */
@@ -98,20 +89,14 @@ html, body {
   background: var(--lavender-bg);
   border-radius: 20px;
   padding: 16px;
-  height: 300px;
-  overflow: hidden;
+  height: 280px;
 }
 
 /* BP SUMMARY */
 .bp-summary {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-}
-
-.bp strong {
-  font-size: 28px;
-  font-weight: 600;
+  gap: 28px;
 }
 
 .bp small {
@@ -119,6 +104,17 @@ html, body {
   color: var(--muted-text);
 }
 
+.bp h2 {
+  margin: 4px 0;
+  font-size: 30px;
+}
+
+.bp-level {
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
+/* DOTS */
 .dot {
   width: 10px;
   height: 10px;
@@ -143,46 +139,41 @@ html, body {
   border-radius: 20px;
 }
 
-.vital i {
-  font-size: 28px;
-  padding: 14px;
-  border-radius: 50%;
-}
-
-.vital.respiratory { background: #EAF4FF; }
-.vital.temperature { background: #FFF0F4; }
+.vital.respiratory { background: var(--light-blue-bg); }
+.vital.temperature { background: var(--light-pink-bg); }
 .vital.heart { background: #F2EEFF; }
 
-.vital.respiratory i { color: var(--primary-blue); }
-.vital.temperature i { color: var(--pink); }
-.vital.heart i { color: var(--purple); }
-
 /* TABLE */
+.table-scroll {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
 th {
-  text-align: left;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted-text);
 }
 
 td {
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
 
 .status.cured { color: var(--green); }
 .status.observation { color: var(--orange); }
-.status.inactive { color: var(--muted-text); }
+.status.active { color: var(--pink); }
 
 /* PROFILE */
 .profile {
   background: var(--card-bg);
   padding: 28px;
   border-radius: 24px;
+  text-align: center;
 }
 
 .profile img {
@@ -194,25 +185,35 @@ td {
 
 .profile p {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 8px;
   color: var(--muted-text);
+}
+
+/* BUTTON */
+.show-btn {
+  margin: 16px auto 24px;
+  padding: 12px 18px;
+  background: var(--teal);
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* LABS */
 .labs {
+  max-height: 180px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 12px;
 }
 
 .lab-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: #F9FAFB;
   padding: 14px 16px;
   border-radius: 12px;
-  background: #F9FAFB;
-  font-size: 14px;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }

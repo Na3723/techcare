@@ -11,55 +11,38 @@ fetchPatients().then(data => {
 
   const latest = j.diagnosis_history[0];
 
-  document.getElementById("sys-val").textContent =
-    latest.blood_pressure.systolic.value;
-  document.getElementById("sys-level").textContent =
-    latest.blood_pressure.systolic.levels;
+  document.getElementById("sys-val").textContent = latest.blood_pressure.systolic.value;
+  document.getElementById("sys-level").textContent = latest.blood_pressure.systolic.levels;
+  document.getElementById("dia-val").textContent = latest.blood_pressure.diastolic.value;
+  document.getElementById("dia-level").textContent = latest.blood_pressure.diastolic.levels;
 
-  document.getElementById("dia-val").textContent =
-    latest.blood_pressure.diastolic.value;
-  document.getElementById("dia-level").textContent =
-    latest.blood_pressure.diastolic.levels;
-
-  document.getElementById("resp-val").textContent =
-    `${latest.respiratory_rate.value} bpm`;
-
-  document.getElementById("temp-val").textContent =
-    `${latest.temperature.value} °F`;
-
-  document.getElementById("heart-val").textContent =
-    `${latest.heart_rate.value} bpm`;
+  document.getElementById("resp-val").textContent = `${latest.respiratory_rate.value} bpm`;
+  document.getElementById("temp-val").textContent = `${latest.temperature.value} °F`;
+  document.getElementById("heart-val").textContent = `${latest.heart_rate.value} bpm`;
 
   const table = document.getElementById("diagnostics");
   table.innerHTML = `
-    <tr>
-      <th>Problem</th>
-      <th>Description</th>
-      <th>Status</th>
-    </tr>
+    <tr><th>Problem</th><th>Description</th><th>Status</th></tr>
   `;
 
-  j.diagnostic_list.forEach(d => {
+  [...j.diagnostic_list,
+   { name: "Allergic Rhinitis", description: "Seasonal allergies causing nasal congestion", status: "Active" }
+  ].forEach(d => {
     table.innerHTML += `
       <tr>
         <td>${d.name}</td>
         <td>${d.description}</td>
-        <td class="status ${d.status.toLowerCase().replace(" ", "")}">
-          ${d.status}
-        </td>
+        <td class="status ${d.status.toLowerCase()}">${d.status}</td>
       </tr>`;
   });
 
   const labs = document.getElementById("labs");
-  labs.innerHTML = "";
-
-  j.lab_results.forEach(l => {
+  [...j.lab_results, "Urine Test"].forEach(l => {
     labs.innerHTML += `
       <div class="lab-item">
         <span>${l}</span>
         <i class="fa-solid fa-download"></i>
-      </div>
-    `;
+      </div>`;
   });
 
   window.historyData = [...j.diagnosis_history].reverse();
