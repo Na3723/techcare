@@ -29,8 +29,9 @@ html, body {
   grid-template-columns: 260px 1fr 320px;
   gap: 24px;
   padding: 24px;
-  height: 100vh;
+  min-height: 100vh;  /* ⬅ allows scrolling */
 }
+
 
 /* SIDEBAR */
 .sidebar {
@@ -52,6 +53,11 @@ html, body {
   display: flex;
   gap: 12px;
 }
+.patient strong {
+  font-size: 14px;        /* slightly smaller */
+  white-space: nowrap;   /* prevent wrapping */
+}
+
 
 /* CENTER */
 .center { overflow: hidden; }
@@ -209,7 +215,7 @@ tbody td {
 
 /* LABS */
 .labs {
-  max-height: 180px;
+  max-height: 300px;  /* ⬅ uses vertical space properly */
   overflow-y: auto;
   display: flex;
   flex-direction: column;

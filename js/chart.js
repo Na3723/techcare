@@ -30,14 +30,11 @@ function renderChart() {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: {
-          position: "right",
-          labels: {
-            usePointStyle: true,
-            pointStyle: "circle",
-          },
-        },
-      },
+  legend: {
+    display: false,  // ⬅ remove graph key
+  },
+},
+
       scales: {
         y: { grid: { color: "#eee" } },
         x: { grid: { display: false } },
