@@ -104,25 +104,28 @@ html, body {
   color: var(--muted-text);
 }
 
-.bp h2 {
-  margin: 4px 0;
+.bp strong {
   font-size: 30px;
+  font-weight: 700;
 }
 
-.bp-level {
-  font-size: 12px;
-  color: var(--muted-text);
+.bp h2 {
+  margin: 6px 0 0;
+  font-size: 32px;
+  font-weight: 800;
 }
 
-/* DOTS */
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 6px;
 }
 
-.dot.pink { background: var(--pink); }
-.dot.purple { background: var(--purple); }
+.dot.pink { background: #FF6B8A; }
+.dot.purple { background: #7B6CF6; }
+
 
 /* VITALS */
 .vitals {
@@ -134,18 +137,46 @@ html, body {
 .vital {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 24px;
+  gap: 20px;
+  padding: 28px;
   border-radius: 20px;
 }
 
-.vital.respiratory { background: var(--light-blue-bg); }
-.vital.temperature { background: var(--light-pink-bg); }
-.vital.heart { background: #F2EEFF; }
+.vital i {
+  font-size: 36px;              /* ⬅ BIGGER ICON */
+  padding: 18px;                /* ⬅ BIGGER CIRCLE */
+  border-radius: 50%;
+}
 
-/* TABLE */
-.table-scroll {
-  max-height: 220px;
+/* Backgrounds */
+.vital.respiratory {
+  background: #EAF4FF;
+}
+.vital.temperature {
+  background: #FFF0F4;
+}
+.vital.heart {
+  background: #F2EEFF;
+}
+
+.vital.respiratory i { color: #0E8AF0; }
+.vital.temperature i { color: #FF6B8A; }
+.vital.heart i { color: #7B6CF6; }
+
+.vital h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.vital small {
+  font-size: 14px;
+  color: var(--muted-text);
+}
+
+/* DIAGNOSTIC TABLE */
+.card.diagnosis table {
+  display: block;
+  max-height: 280px;          /* ⬅ controls visible height */
   overflow-y: auto;
 }
 
@@ -154,15 +185,16 @@ table {
   border-collapse: collapse;
 }
 
-th {
-  font-size: 13px;
-  color: var(--muted-text);
+th, td {
+  width: 33%;
 }
 
 td {
-  padding: 14px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--border);
+  font-size: 14px;
 }
+
 
 .status.cured { color: var(--green); }
 .status.observation { color: var(--orange); }
