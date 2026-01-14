@@ -1,9 +1,11 @@
 function renderChart() {
   const ctx = document.getElementById("bpChart").getContext("2d");
 
-  const labels = historyData.map(h => `${h.month} ${h.year}`);
-  const systolic = historyData.map(h => h.blood_pressure.systolic.value);
-  const diastolic = historyData.map(h => h.blood_pressure.diastolic.value);
+  const sliced = historyData.slice(-6);
+
+  const labels = sliced.map(h => `${h.month} ${h.year}`);
+  const systolic = sliced.map(h => h.blood_pressure.systolic.value);
+  const diastolic = sliced.map(h => h.blood_pressure.diastolic.value);
 
   new Chart(ctx, {
     type: "line",
@@ -13,8 +15,8 @@ function renderChart() {
         {
           label: "Systolic",
           data: systolic,
-          borderColor: "#ff6b8a",
-          backgroundColor: "rgba(255,107,154,0.25)",
+          borderColor: "#FF6B8A",
+          backgroundColor: "rgba(255,107,138,0.25)",
           tension: 0.4,
           pointRadius: 4,
           fill: true,
@@ -23,7 +25,7 @@ function renderChart() {
           label: "Diastolic",
           data: diastolic,
           borderColor: "#7B6CF6",
-          backgroundColor: "rgba(108,92,231,0.25)",
+          backgroundColor: "rgba(123,108,246,0.25)",
           tension: 0.4,
           pointRadius: 4,
           fill: true,
@@ -31,14 +33,19 @@ function renderChart() {
       ],
     },
     options: {
-      responsive: true,   // 🔒 THIS FIXES THE DISAPPEARING
+      responsive: true,
       maintainAspectRatio: false,
       plugins: {
         legend: {
           position: "right",
           labels: {
             usePointStyle: true,
-            padding: 20,
+            boxWidth: 8,
+            padding: 16,
+            font: {
+              size: 12,
+              weight: "500",
+            },
           },
         },
       },
