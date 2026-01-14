@@ -18,79 +18,116 @@
 
   <!-- LEFT SIDEBAR -->
   <aside class="sidebar">
-    <h1 class="logo">Tech.Care</h1>
-    <h3>Patients</h3>
+
+    <!-- BRAND -->
+    <div class="brand">
+      Tech.Care
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+      <a class="nav-item active">
+        <i class="fa-solid fa-chart-pie"></i>
+        Overview
+      </a>
+      <a class="nav-item">
+        <i class="fa-solid fa-user-group"></i>
+        Patients
+      </a>
+      <a class="nav-item">
+        <i class="fa-solid fa-calendar"></i>
+        Schedule
+      </a>
+      <a class="nav-item">
+        <i class="fa-solid fa-message"></i>
+        Message
+      </a>
+      <a class="nav-item">
+        <i class="fa-solid fa-credit-card"></i>
+        Transactions
+      </a>
+    </nav>
+
+    <!-- PATIENTS -->
+    <h3 class="sidebar-title">Patients</h3>
 
     <div class="patient active">
       <img id="patient-photo" />
-      <div>
+      <div class="patient-info">
         <strong>Jessica Taylor</strong>
         <small>Female, 28</small>
       </div>
     </div>
+
   </aside>
 
-  <!-- CENTER -->
+  <!-- CENTER CONTENT -->
   <main class="center">
 
     <!-- DIAGNOSIS HISTORY -->
     <div class="card diagnosis">
-
       <h2>Diagnosis History</h2>
 
       <div class="diagnosis-wrap">
 
-        <div class="chart-row">
-          <div class="chart-box">
-            <canvas id="bpChart"></canvas>
-          </div>
+        <!-- CHART + BP SUMMARY -->
+        <div class="bp-card">
+          <div class="bp-layout">
 
-          <div class="bp-summary">
-            <div class="bp">
-              <span class="dot pink"></span>
-              <strong>Systolic</strong>
-              <h2 id="sys-val">--</h2>
-              <span id="sys-level" class="bp-level"></span>
+            <!-- CHART -->
+            <div class="bp-chart">
+              <canvas id="bpChart"></canvas>
             </div>
 
-            <div class="bp-divider"></div>
+            <!-- BP STATS -->
+            <div class="bp-summary">
+              <div class="bp">
+                <span class="dot pink"></span>
+                <strong>Systolic</strong>
+                <h2 id="sys-val">--</h2>
+                <span id="sys-level" class="bp-level"></span>
+              </div>
 
-            <div class="bp">
-              <span class="dot purple"></span>
-              <strong>Diastolic</strong>
-              <h2 id="dia-val">--</h2>
-              <span id="dia-level" class="bp-level"></span>
+              <div class="bp-divider"></div>
+
+              <div class="bp">
+                <span class="dot purple"></span>
+                <strong>Diastolic</strong>
+                <h2 id="dia-val">--</h2>
+                <span id="dia-level" class="bp-level"></span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- VITALS -->
+          <div class="vitals">
+            <div class="vital respiratory">
+              <i class="fa-solid fa-wind"></i>
+              <div>
+                <small>Respiratory Rate</small>
+                <h3 id="resp-val">--</h3>
+              </div>
+            </div>
+
+            <div class="vital temperature">
+              <i class="fa-solid fa-temperature-high"></i>
+              <div>
+                <small>Temperature</small>
+                <h3 id="temp-val">--</h3>
+              </div>
+            </div>
+
+            <div class="vital heart">
+              <i class="fa-solid fa-heart"></i>
+              <div>
+                <small>Heart Rate</small>
+                <h3 id="heart-val">--</h3>
+              </div>
             </div>
           </div>
+
         </div>
-
-        <!-- VITALS -->
-        <div class="vitals">
-          <div class="vital respiratory">
-            <i class="fa-solid fa-wind"></i>
-            <div>
-              <small>Respiratory Rate</small>
-              <h3 id="resp-val">--</h3>
-            </div>
-          </div>
-
-          <div class="vital temperature">
-            <i class="fa-solid fa-temperature-high"></i>
-            <div>
-              <small>Temperature</small>
-              <h3 id="temp-val">--</h3>
-            </div>
-          </div>
-
-          <div class="vital heart">
-            <i class="fa-solid fa-heart"></i>
-            <div>
-              <small>Heart Rate</small>
-              <h3 id="heart-val">--</h3>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -98,17 +135,16 @@
     <div class="card diagnosis">
       <h2>Diagnostic List</h2>
 
+      <!-- TABLE HEADER -->
+      <div class="diagnostic-header">
+        <span>Problem</span>
+        <span>Description</span>
+        <span>Status</span>
+      </div>
+
+      <!-- TABLE BODY -->
       <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Problem</th>
-              <th>Description</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="diagnostics"></tbody>
-        </table>
+        <div id="diagnostics"></div>
       </div>
     </div>
 
@@ -129,7 +165,7 @@
     <button class="show-btn">Show All Information</button>
 
     <h3>Lab Results</h3>
-    <div class="labs" id="labs"></div>
+    <div class="labs labs-scroll" id="labs"></div>
   </aside>
 
 </div>
@@ -140,4 +176,3 @@
 
 </body>
 </html>
-
