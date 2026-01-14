@@ -125,7 +125,6 @@ html, body {
 
 /* Diagnosis section */
 .diagnosis-wrap {
-  background: var(--lavender-bg);
   border-radius: 20px;
   padding: 24px;
 }
@@ -134,14 +133,21 @@ html, body {
 .bp-card {
   display: flex;
   flex-direction: column;
+  background: var(--lavender-bg);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 /* Chart + stats layout */
 .bp-layout {
   display: grid;
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: 2fr 1fr;
   gap: 24px;
   align-items: center;
+}
+
+.bp-chart {
+  height: 240px; 
 }
 
 /* Chart sizing */
