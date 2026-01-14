@@ -156,7 +156,7 @@ html, body {
 
 .bp-chart {
   height: 270px; 
-  margin-top: 4px;
+  margin-top: 12px;
 }
 
 /* Chart sizing */
@@ -174,9 +174,9 @@ html, body {
 }
 
 .bp-summary h2 {
-  font-size: 32px;   /* increase from ~24px */
-  font-weight: 700;
-  margin: 6px 0;
+  font-size: 26px;   /* increase from ~24px */
+  font-weight: 400;
+  margin: 4px 0;
 }
 
 .bp strong {
@@ -195,9 +195,9 @@ html, body {
 }
 
 .bp-header {
-  font-size: 16px;     /* bigger than S/D labels */
-  font-weight: 700;   /* bold */
-  margin-bottom: 6px; /* tighter spacing */
+  font-size: 18px;     /* bigger than S/D labels */
+  font-weight: 800;   /* bold */
+  margin-bottom: 8px; /* tighter spacing */
 }
 
 
@@ -224,8 +224,8 @@ html, body {
 .vital {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 24px;
+  gap: 12px;
+  padding: 22px;
   border-radius: 20px;
 }
 
@@ -456,4 +456,17 @@ html, body {
   font-size: 16px;
   color: var(--muted-text);
   cursor: pointer;
+}
+
+.vital h3 {
+  font-size: 28px;    /* bigger than BP numbers */
+  font-weight: 700;
+  margin: 2px 0 0;
+}
+
+.vital small {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: block;
 }
