@@ -1,7 +1,20 @@
 fetchPatients().then(data => {
   const j = data.find(p => p.name === "Jessica Taylor");
 
-  /* LEFT + RIGHT PROFILE */
+  /* ================= DOCTOR PROFILE ================= */
+
+  const doctor = {
+    name: "Dr. Jose Simmons",
+    role: "General Practitioner",
+    photo: "https://fedskillstest.ct.digital/doctor.png"
+  };
+
+  document.getElementById("doctor-photo").src = doctor.photo;
+  document.getElementById("doctor-name").textContent = doctor.name;
+  document.getElementById("doctor-role").textContent = doctor.role;
+
+  /* ================= PATIENT PROFILE ================= */
+
   document.getElementById("patient-photo").src = j.profile_picture;
   document.getElementById("profile-picture").src = j.profile_picture;
   document.getElementById("full-name").textContent = j.name;
@@ -10,20 +23,8 @@ fetchPatients().then(data => {
   document.getElementById("phone").textContent = j.phone_number;
   document.getElementById("insurance").textContent = j.insurance_type;
 
-  /* ================= DOCTOR PROFILE (STATIC DATA, JS-RENDERED) ================= */
+  /* ================= LATEST DIAGNOSIS ================= */
 
-const doctor = {
-  name: "Dr. Jose Simmons",
-  role: "General Practitioner",
-  photo: "https://fedskillstest.ct.digital/doctor.png"
-};
-
-document.getElementById("doctor-photo").src = doctor.photo;
-document.getElementById("doctor-name").textContent = doctor.name;
-document.getElementById("doctor-role").textContent = doctor.role;
-
-
-  /* LATEST DIAGNOSIS */
   const latest = j.diagnosis_history[0];
 
   document.getElementById("sys-val").textContent =
@@ -43,12 +44,21 @@ document.getElementById("doctor-role").textContent = doctor.role;
   document.getElementById("heart-val").textContent =
     `${latest.heart_rate.value} bpm`;
 
-  /* ================= DIAGNOSTIC LIST (FIXED) ================= */
+  /* ================= DIAGNOSTIC LIST ================= */
 
   const diagnosticsEl = document.getElementById("diagnostics");
   diagnosticsEl.innerHTML = "";
 
-  j.diagnostic_list.forEach(d => {
+  const extendedDiagnostics = [
+    ...j.diagnostic_list,
+    {
+      name: "Allergic Rhinitis",
+      description: "Seasonal allergies causing nasal congestion",
+      status: "Active"
+    }
+  ];
+
+  extendedDiagnostics.forEach(d => {
     const statusClass = d.status.toLowerCase().split(" ")[0];
 
     const row = document.createElement("div");
@@ -68,7 +78,12 @@ document.getElementById("doctor-role").textContent = doctor.role;
   const labs = document.getElementById("labs");
   labs.innerHTML = "";
 
-  j.lab_results.forEach(l => {
+  const extendedLabs = [
+    ...j.lab_results,
+    "Urine Test"
+  ];
+
+  extendedLabs.forEach(l => {
     labs.innerHTML += `
       <div class="lab-item">
         <span>${l}</span>
