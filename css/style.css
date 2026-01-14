@@ -174,7 +174,7 @@ html, body {
 }
 
 .bp-summary h2 {
-  font-size: 26px;   /* increase from ~24px */
+  font-size: 20px;   /* increase from ~24px */
   font-weight: 400;
   margin: 4px 0;
 }
