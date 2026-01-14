@@ -486,7 +486,3 @@ html, body {
   margin-bottom: 2px;
   display: block;
 }
-
-.card.diagnosis:last-of-type {
-  margin-bottom: 40px; /* ⬅ adds space under diagnostic list */
-}
